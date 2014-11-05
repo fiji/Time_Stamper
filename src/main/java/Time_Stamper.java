@@ -1,8 +1,13 @@
-import ij.*;
-import ij.process.*;
-import ij.gui.*;
-import java.awt.*;
-import ij.plugin.filter.*;
+import ij.IJ;
+import ij.ImagePlus;
+import ij.gui.GenericDialog;
+import ij.gui.Toolbar;
+import ij.plugin.filter.ExtendedPlugInFilter;
+import ij.plugin.filter.PlugInFilterRunner;
+import ij.process.ImageProcessor;
+
+import java.awt.Font;
+import java.awt.Rectangle;
 
 public class Time_Stamper implements ExtendedPlugInFilter {
     ImagePlus imp;
