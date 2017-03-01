@@ -101,8 +101,8 @@
 		<url>https://github.com/fiji/Time_Stamper/issues</url>
 	</issueManagement>
 	<ciManagement>
-		<system>Jenkins</system>
-		<url>http://jenkins.imagej.net/job/Time_Stamper/</url>
+		<system>Travis CI</system>
+		<url>https://travis-ci.org/fiji/Time_Stamper</url>
 	</ciManagement>
 
 	<properties>
