@@ -54,6 +54,12 @@
 	</developers>
 	<contributors>
 		<contributor>
+			<name>Wayne Rasband</name>
+			<url>https://imagej.net/Wayne_Rasband</url>
+			<properties><id>rasband</id></properties>
+			<roles><role>founder</role></roles>
+		</contributor>
+		<contributor>
 			<name>Johannes Schindelin</name>
 			<url>https://imagej.net/User:Schindelin</url>
 			<properties><id>dscho</id></properties>
