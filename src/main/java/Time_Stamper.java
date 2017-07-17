@@ -1,6 +1,8 @@
 import ij.IJ;
 import ij.ImagePlus;
 import ij.gui.GenericDialog;
+import ij.gui.Overlay;
+import ij.gui.TextRoi;
 import ij.gui.Toolbar;
 import ij.plugin.filter.ExtendedPlugInFilter;
 import ij.plugin.filter.PlugInFilterRunner;
@@ -23,6 +25,7 @@ public class Time_Stamper implements ExtendedPlugInFilter {
     int idx = 1;
     static boolean digital = false;
     boolean AAtext=true;
+    boolean addToOverlay;
 
     final int flags = DOES_ALL + DOES_STACKS + STACK_REQUIRED;
 
@@ -54,8 +57,19 @@ public class Time_Stamper implements ExtendedPlugInFilter {
         else
             s = getString(time);
 
-        ip.moveTo(x+maxWidth-ip.getStringWidth(s), y);
-        ip.drawString(s);
+        if (addToOverlay) {
+          Overlay overlay = imp.getOverlay();
+          if (overlay == null) {
+            overlay = new Overlay();
+            imp.setOverlay(overlay);
+          }
+          TextRoi textRoi = new TextRoi(x+maxWidth-ip.getStringWidth(s), y, s);
+          textRoi.setPosition(pos[0], pos[1], pos[2]);
+          overlay.add(textRoi);
+        } else {
+          ip.moveTo(x+maxWidth-ip.getStringWidth(s), y);
+          ip.drawString(s);
+        }
         // increment frame number
         idx++;
     }
@@ -113,6 +127,7 @@ public class Time_Stamper implements ExtendedPlugInFilter {
         gd.addNumericField("Decimal Places:", decimalPlaces, 0);
         gd.addStringField("Or with a suffix  Suffix:", suffix);
         gd.addCheckbox("Anti-Aliased text?", true);
+        gd.addCheckbox("Overlay", false);
 
         gd.showDialog();
         if (gd.wasCanceled())
@@ -137,6 +152,7 @@ public class Time_Stamper implements ExtendedPlugInFilter {
         if (y<size)
             y = size;
         maxWidth = ip.getStringWidth(getString(start+interval*imp.getStackSize()));
+        addToOverlay = gd.getNextBoolean();
         imp.startTiming();
 
         return flags;
