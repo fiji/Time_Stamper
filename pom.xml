@@ -11,7 +11,7 @@
 
 	<groupId>sc.fiji</groupId>
 	<artifactId>Time_Stamper</artifactId>
-	<version>2.0.2-SNAPSHOT</version>
+	<version>2.1.0</version>
 
 	<name>Time Stamper</name>
 	<description>Time Stamper plugin for Fiji.</description>
@@ -96,7 +96,7 @@
 	<scm>
 		<connection>scm:git:git://github.com/fiji/Time_Stamper</connection>
 		<developerConnection>scm:git:git@github.com:fiji/Time_Stamper</developerConnection>
-		<tag>HEAD</tag>
+		<tag>Time_Stamper-2.1.0</tag>
 		<url>https://github.com/fiji/Time_Stamper</url>
 	</scm>
 	<issueManagement>
