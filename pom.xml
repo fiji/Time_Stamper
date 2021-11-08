@@ -94,7 +94,7 @@
 	</mailingLists>
 
 	<scm>
-		<connection>scm:git:git://github.com/fiji/Time_Stamper</connection>
+		<connection>scm:git:https://github.com/fiji/Time_Stamper</connection>
 		<developerConnection>scm:git:git@github.com:fiji/Time_Stamper</developerConnection>
 		<tag>HEAD</tag>
 		<url>https://github.com/fiji/Time_Stamper</url>
